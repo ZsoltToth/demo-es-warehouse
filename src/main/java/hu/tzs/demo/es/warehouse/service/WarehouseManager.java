@@ -1,8 +1,6 @@
 package hu.tzs.demo.es.warehouse.service;
 
-import hu.tzs.demo.es.warehouse.model.Product;
 import hu.tzs.demo.es.warehouse.model.Warehouse;
-import hu.tzs.demo.es.warehouse.service.exception.ProductNotFoundException;
 import hu.tzs.demo.es.warehouse.service.exception.WarehouseNotFoundException;
 
 import java.util.Collection;

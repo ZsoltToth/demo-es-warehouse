@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class WarehouseManagerImpl implements WarehouseManager {
 
     private final WarehouseRepository warehouseRepository;
+
     @Override
     public Warehouse createWarehouse(String name) {
         WarehouseEntity entity = warehouseRepository.save(
@@ -33,13 +34,13 @@ public class WarehouseManagerImpl implements WarehouseManager {
     @Override
     public Warehouse getWarehouseById(UUID id) throws WarehouseNotFoundException {
         Optional<WarehouseEntity> queryResult = warehouseRepository.findById(id);
-        if(queryResult.isEmpty()){
+        if (queryResult.isEmpty()) {
             throw new WarehouseNotFoundException(String.format("Warehouse (%s) was not found!", id));
         }
         return this.entity2model(queryResult.get());
     }
 
-    private Warehouse entity2model(WarehouseEntity entity){
+    private Warehouse entity2model(WarehouseEntity entity) {
         return new Warehouse(entity.getId(), entity.getName());
     }
 }
