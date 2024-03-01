@@ -2,7 +2,6 @@ package hu.tzs.demo.es.warehouse.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-
 import java.util.UUID;
 
 @AllArgsConstructor

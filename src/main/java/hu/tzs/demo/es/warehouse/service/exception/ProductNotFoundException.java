@@ -1,6 +1,5 @@
 package hu.tzs.demo.es.warehouse.service.exception;
 
-
 public class ProductNotFoundException extends Exception {
 
     public ProductNotFoundException() {

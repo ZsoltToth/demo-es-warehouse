@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 public class ProductManagerImpl implements ProductManager {
 
     private final ProductRepository productRepository;
+
     @Override
     public Product createProduct(String name) {
         ProductEntity entity = ProductEntity.builder().name(name).build();
@@ -32,13 +33,13 @@ public class ProductManagerImpl implements ProductManager {
     @Override
     public Product getProductById(UUID id) throws ProductNotFoundException {
         Optional<ProductEntity> queryResult = productRepository.findById(id);
-        if(queryResult.isEmpty()){
+        if (queryResult.isEmpty()) {
             throw new ProductNotFoundException(String.format("Product (%s) Not Found!", id));
         }
         return this.entity2model(queryResult.get());
     }
 
-    private Product entity2model(ProductEntity entity){
+    private Product entity2model(ProductEntity entity) {
         return new Product(entity.getId(), entity.getName());
     }
 }

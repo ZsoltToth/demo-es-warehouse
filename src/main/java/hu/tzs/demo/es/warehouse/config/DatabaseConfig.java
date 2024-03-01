@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"hu.tzs.demo.es.warehouse.persist"})
-public class DBConfig {
+public class DatabaseConfig {
 }

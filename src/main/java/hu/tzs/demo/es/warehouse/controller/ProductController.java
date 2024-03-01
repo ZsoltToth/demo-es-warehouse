@@ -3,15 +3,17 @@ package hu.tzs.demo.es.warehouse.controller;
 import hu.tzs.demo.es.warehouse.controller.dto.ProductDto;
 import hu.tzs.demo.es.warehouse.controller.dto.ProductRecordRequestDto;
 import hu.tzs.demo.es.warehouse.model.Product;
-import hu.tzs.demo.es.warehouse.persist.ProductRepository;
-import hu.tzs.demo.es.warehouse.persist.entity.ProductEntity;
 import hu.tzs.demo.es.warehouse.service.ProductManager;
 import hu.tzs.demo.es.warehouse.service.exception.ProductNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.Collection;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -29,8 +31,8 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ProductDto fetchProductById(@PathVariable UUID id){
-        try{
+    public ProductDto fetchProductById(@PathVariable UUID id) {
+        try {
             Product product = productManager.getProductById(id);
             return this.model2dto(product);
         } catch (ProductNotFoundException e) {
@@ -44,7 +46,7 @@ public class ProductController {
         return this.model2dto(product);
     }
 
-    private ProductDto model2dto(Product product){
+    private ProductDto model2dto(Product product) {
         return ProductDto.builder().id(product.getId()).name(product.getName()).build();
     }
 

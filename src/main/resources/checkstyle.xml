@@ -184,10 +184,12 @@ Checkstyle configuration that checks the Google coding conventions from Google J
         </module>
         <module name="OverloadMethodsDeclarationOrder"/>
         <module name="VariableDeclarationUsageDistance"/>
+        <!--
         <module name="CustomImportOrder">
             <property name="customImportOrderRules" value="STATIC###THIRD_PARTY_PACKAGE"/>
             <property name="sortImportsInGroupAlphabetically" value="true"/>
         </module>
+        -->
         <module name="MethodParamPad">
             <property name="tokens"
                       value="CTOR_DEF, LITERAL_NEW, METHOD_CALL, METHOD_DEF,                     SUPER_CTOR_CALL, ENUM_CONSTANT_DEF, RECORD_DEF"/>
