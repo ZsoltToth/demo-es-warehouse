@@ -22,7 +22,7 @@ import java.util.UUID;
 public class WarehouseEntity {
 
     @Id
-    @Column(name = "product_id")
+    @Column(name = "warehouse_id")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
