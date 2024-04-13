@@ -71,7 +71,7 @@ public class StorageManagerImpl implements StorageManager {
         depositedItems.entrySet().forEach(entry -> {
             try {
                 Long updatedAmount = this.deposit(warehouse, entry.getKey(), entry.getValue());
-                result.put(entry.getKey(), updatedAmount);
+                result.put(productManager.getProductById(entry.getKey().getId()), updatedAmount);
             } catch (WarehouseNotFoundException e) {
                 log.info(String.format("Warehouse (%s) was not found!", warehouse.getId()));
             } catch (ProductNotFoundException e) {
