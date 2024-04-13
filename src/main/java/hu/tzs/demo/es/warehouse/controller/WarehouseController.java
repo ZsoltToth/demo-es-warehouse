@@ -39,7 +39,6 @@ public class WarehouseController {
         } catch (WarehouseNotFoundException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
-
     }
 
     @PostMapping
